@@ -18,8 +18,10 @@ For selective sampling in [ALBEF](https://github.com/salesforce/ALBEF) and [MedC
 Mini-batch selective sampling requires the mammography image-report pairs to have the `group` information. `group` information can be extracted from radiology reports using the [script]() provided in this code repo. 
 
 Assuming that your data is in the format as provided in `sample_data.json`, you can enable the selective sampling by creating a `SelectiveSampling` object in your custom Pytorch Dataset class as follows:
-1. Import selective sampling:
-```import SelectiveSampling```
+1. Import selective sampling in your custom dataset code:
+```
+from selective_sampling import SelectiveSampling
+```
 
 2. Add selective sampling to your custom dataset class:
 ```
