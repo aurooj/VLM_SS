@@ -23,7 +23,7 @@ Assuming that your data is in the format as provided in `sample_data.json`, you 
 from selective_sampling import SelectiveSampling
 ```
 
-2. Add selective sampling to your custom dataset class in the __init__() function:
+2. Add selective sampling to your custom dataset class in the `__init__()` function:
 ```
 self.selective_sampling = SelectiveSampling(ann_file)
 ```
