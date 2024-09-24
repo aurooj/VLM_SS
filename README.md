@@ -23,7 +23,7 @@ Assuming that your data is in the format as provided in `sample_data.json`, you 
 from selective_sampling import SelectiveSampling
 ```
 
-2. Add selective sampling to your custom dataset class:
+2. Add selective sampling to your custom dataset class in the __init__() function:
 ```
 self.selective_sampling = SelectiveSampling(ann_file)
 ```
@@ -39,7 +39,7 @@ def shuffle(self, bs=8, , rare_grp_ratio=0.375, batch_shuffle=False):
    
 where ```bs```=batch_size, ```rare_grp_ratio```=ratio of samples from rare groups in a mini-batch, ```batch_shuffle```= a boolean flag, if set to True, mini-batch is shuffled further; default value is set to `False` based on the ablations reported in table 3, rows (5) and (6) in the paper. 
 
-4. Now in your main training loop, you can call the selective sampling based shuffling by calling the shuffle method in your custom dataset class. See example snippet from `ALBEF/Pretrain.py` below:
+4. Now in your main training loop, you can call the selective sampling based shuffling by calling the shuffle method in your custom dataset class, i.e., `data_loader.dataset.shuffle(bs=<batch_size>)`. See example snippet from `ALBEF/Pretrain.py` below:
 ```
 for epoch in range(start_epoch, max_epoch):
 
