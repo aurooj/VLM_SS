@@ -71,6 +71,8 @@ where ```bs```=batch_size, ```rare_grp_ratio```=ratio of samples from rare group
 
 We integrated selective sampling as part of this work into ALBEF and MedCLIP code repos. The updated codes are provided as part of this code repo. We thank the authors of ALBEF and MedCLIP for providing their amazing code repos. 
 
+##### Todo: 
+- [ ] Add MedCLIP's modified version with selective sampling here.
 
 ### Citation
 If this work and/or its findings are useful for your research, please cite our paper.
