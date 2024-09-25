@@ -1,0 +1,41 @@
+train_file:  ['data/uw_ten_shot_set.json']
+val_file: 'data/uw_madison_val.json'   
+test_file: 'data/uw_madison_test_1000.json'             
+demo_file: 'data/uw_madison_test.json'
+image_root: '/mnt/PURENFS/SalkowskiPreprocessedBreast/processed_for_albef/'
+
+bert_config: 'configs/config_bert.json'
+
+image_res: 512
+batch_size_train: 8
+batch_size_test: 8
+num_samples: 72328
+max_words: 256
+patch_size: 16
+
+queue_size: 65536
+momentum: 0.995
+vision_width: 768
+embed_dim: 256
+temp: 0.07
+k_test: 50
+
+alpha: 0.4
+distill: True
+warm_up: True
+
+#selective sampling params
+selective_sampling: True
+rare_grp_ratio: 0.375
+batch_shuffle: False
+
+
+optimizer: {opt: adamW, lr: 1e-5, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1e-5, epochs: 5, min_lr: 1e-6, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 1, cooldown_epochs: 0}
+
+
+
+
+
+
+
