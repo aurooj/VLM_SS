@@ -50,6 +50,9 @@ for epoch in range(start_epoch, max_epoch):
             ...
 ```
 
+  #### NOTE: 
+        The default sampling, i.e., `data_loader.shuffle` should be set to `False` in the training dataloader when using selective sampling based shuffling. 
+
 We integrated selective sampling as part of this work into ALBEF and MedCLIP code repos. The updated codes are provided as part of this code repo. We thank the authors of ALBEF and MedCLIP for providing their amazing code repos. 
 
 
