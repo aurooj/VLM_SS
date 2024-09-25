@@ -39,16 +39,32 @@ def shuffle(self, bs=8, , rare_grp_ratio=0.375, batch_shuffle=False):
    
 where ```bs```=batch_size, ```rare_grp_ratio```=ratio of samples from rare groups in a mini-batch, ```batch_shuffle```= a boolean flag, if set to True, mini-batch is shuffled further; default value is set to `False` based on the ablations reported in table 3, rows (5) and (6) in the paper. 
 
-4. Now in your main training loop, you can call the selective sampling based shuffling by calling the shuffle method in your custom dataset class, i.e., `data_loader.dataset.shuffle(bs=<batch_size>)`. See example snippet from `ALBEF/Pretrain.py` below:
-```
-for epoch in range(start_epoch, max_epoch):
-
+4. Now in your main training loop, you can call the selective sampling based shuffling by calling the shuffle method in your custom dataset class, i.e., `data_loader.dataset.shuffle(bs=<batch_size>)`.
+   
+   ```
+   for epoch in range(epochs):
+        
         if config['selective_sampling']:
             #at every epoch, shuffle data with custom sampling function for medical data
             print(f"Shuffling training data for epoch {epoch}")
             data_loader.dataset.shuffle(bs=config['batch_size'])
-            ...
+   ```
+   See example snippet from `ALBEF/Pretrain.py` below:
+
+   
 ```
+        for epoch in range(start_epoch, max_epoch):
+
+                if config['selective_sampling']:
+                    #at every epoch, shuffle data with custom sampling function for medical data
+                    print(f"Shuffling training data for epoch {epoch}")
+                    data_loader.dataset.shuffle(bs=config['batch_size'],
+                                                rare_grp_ratio=config['rare_grp_ratio'],
+                                                batch_shuffle=config['batch_shuffle']
+                                                )
+                        ...
+```
+
 
   #### NOTE: 
         The default sampling, i.e., `data_loader.shuffle` should be set to `False` in the training dataloader when using selective sampling based shuffling. 
