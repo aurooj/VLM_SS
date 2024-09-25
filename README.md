@@ -45,8 +45,6 @@ where ```bs```=batch_size, ```rare_grp_ratio```=ratio of samples from rare group
    for epoch in range(epochs):
         
         if config['selective_sampling']:
-            #at every epoch, shuffle data with custom sampling function for medical data
-            print(f"Shuffling training data for epoch {epoch}")
             data_loader.dataset.shuffle(bs=config['batch_size'])
    ```
    See example snippet from `ALBEF/Pretrain.py` below:
