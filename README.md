@@ -27,7 +27,7 @@ from selective_sampling import SelectiveSampling
 ```
 self.selective_sampling = SelectiveSampling(ann_file)
 ```
-`ann_file` is the path to `sample_data.json` file.
+where `ann_file` is the path to `sample_data.json` file.
 
 3. Add `shuffle()` definition to your dataset class:
 ```
