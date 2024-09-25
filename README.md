@@ -15,7 +15,7 @@ json, random, math, and tqdm
 For selective sampling in [ALBEF](https://github.com/salesforce/ALBEF) and [MedCLIP](https://github.com/RyanWangZf/MedCLIP), we use the environments required to setup their code repos respectively. 
 
 ### Usage
-Mini-batch selective sampling requires the mammography image-report pairs to have the `group` information. `group` information can be extracted from radiology reports using the [notebook]() provided in this code repo. 
+Mini-batch selective sampling requires the mammography image-report pairs to have the `group` information. `group` information can be extracted from radiology reports using the [notebook](https://github.com/aurooj/VLM_SS/blob/main/extract_groups.ipynb) `extract_groups.ipynb` provided in this code repo. 
 
 Assuming that your data is in the format as provided in `sample_data.json`, you can enable the selective sampling by creating a `SelectiveSampling` object in your custom Pytorch Dataset class as follows:
 1. Import selective sampling in your custom dataset code:
