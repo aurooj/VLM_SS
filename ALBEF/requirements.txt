@@ -1,0 +1,12 @@
+numpy==1.25.2
+timm==0.4.9
+transformers==4.8.1
+h5py
+ruamel_yaml==0.17.33
+opencv-python-headless
+pyamg
+python-gdcm
+pylibjpeg
+pylibjpeg-libjpeg
+pylibjpeg-openjpeg
+openpyxl
