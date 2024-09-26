@@ -10,9 +10,10 @@ Official Pytorch implementation of Mini-batch selective sampling for knowledge a
 
 ### Requirements
 The code for selective sampling works for python 3.x versions and requires the following packages: 
-json, random, math, and tqdm
+random, math, and tqdm
 
-For selective sampling in [ALBEF](https://github.com/salesforce/ALBEF) and [MedCLIP](https://github.com/RyanWangZf/MedCLIP), we use the environments required to setup their code repos respectively. 
+For selective sampling in [ALBEF](https://github.com/salesforce/ALBEF), we use the environment from `ALBEF/requirements.txt`.
+For selective sampling in [MedCLIP](https://github.com/RyanWangZf/MedCLIP), we use the environment provided in `MedCLIP/requirements.txt`. 
 
 ### Usage
 Mini-batch selective sampling requires the mammography image-report pairs to have the `group` information. `group` information can be extracted from radiology reports using the [notebook](https://github.com/aurooj/VLM_SS/blob/main/extract_groups.ipynb) `extract_groups.ipynb` provided in this code repo. 
@@ -86,8 +87,15 @@ where ```bs```=batch_size, ```rare_grp_ratio```=ratio of samples from rare group
 
 We integrated selective sampling as part of this work into ALBEF and MedCLIP code repos. The updated codes are provided as part of this code repo. We thank the authors of ALBEF and MedCLIP for providing their amazing code repos. 
 
+### ALBEF with Selective Sampling
+Read instructions from [albef.md](https://github.com/aurooj/VLM_SS/blob/main/albef.md) for ALBEF trained with selective sampling. 
+
+### MedCLIP with Selective Sampling
+Read instructions from [medclip.md](https://github.com/aurooj/VLM_SS/blob/main/medclip.md) for MedCLIP trained with selective sampling. 
+
 ##### Todo: 
-- [ ] Add MedCLIP's modified version with selective sampling here.
+- [x] Add MedCLIP's modified version with selective sampling here.
+- [ ] Add pretrained model weights
 
 ### Citation
 If this work and/or its findings are useful for your research, please cite our paper.
