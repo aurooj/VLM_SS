@@ -48,7 +48,7 @@ Each dictionary in this list belongs to a data instance, and
 
 3. Add `shuffle()` definition to your dataset class:
 ```
-def shuffle(self, bs=8, , rare_grp_ratio=0.375, batch_shuffle=False):
+def shuffle(self, bs=8, rare_grp_ratio=0.375, batch_shuffle=False):
         #function to prepare minibatches based on selective sampling strategy
         # calls shuffle function from the base class (SelectiveSampling) 
         self.ann = self.selective_sampling.shuffle(bs=bs, rare_grp_ratio=rare_grp_ratio, batch_shuffle=batch_shuffle)
