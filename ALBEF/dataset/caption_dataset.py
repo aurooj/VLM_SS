@@ -19,12 +19,12 @@ from dataset.selective_sampling import SelectiveSampling
 class re_train_dataset(Dataset):
     def __init__(self, ann_file, transform, image_root, max_words=30, num_samples=20):
 
-        #this class has selective sampling feature available, can be used when needed by calling SelectiveSampling.shuffle(batch_size)
-        self.selective_sampling = SelectiveSampling(ann_file)
-
         self.ann = []
         for f in ann_file:
             self.ann += json.load(open(f,'r'))
+
+        #this class has selective sampling feature available, can be used when needed by calling SelectiveSampling.shuffle(batch_size)
+        self.selective_sampling = SelectiveSampling(data = self.ann)
 
         #choose only a subset of samples, added to run on small set to make sure everything works fine
         # self.ann = self.ann[:num_samples] 
@@ -57,7 +57,7 @@ class re_train_dataset(Dataset):
 
         return image, caption, self.img_ids[ann['image_id']]
 
-    def shuffle(self, bs=8, , rare_grp_ratio=0.375, batch_shuffle=False):
+    def shuffle(self, bs=8, rare_grp_ratio=0.375, batch_shuffle=False):
         #function to prepare minibatches based on selective sampling strategy
         # calls shuffle function from the base class (SelectiveSampling) 
         self.ann = self.selective_sampling.shuffle(bs=bs, rare_grp_ratio=rare_grp_ratio, batch_shuffle=batch_shuffle)
@@ -133,15 +133,16 @@ class re_eval_dataset(Dataset):
         
 
 class pretrain_dataset(Dataset):
-    def __init__(self, ann_file, transform, max_words=30):    
-
-        #this class has selective sampling feature available, can be used when needed by calling SelectiveSampling.shuffle(batch_size)
-        self.selective_sampling = SelectiveSampling(ann_file)
-
+    def __init__(self, ann_file, transform, max_words=30): 
 
         self.ann = []
         for f in ann_file:
-            self.ann += json.load(open(f,'r'))
+            self.ann += json.load(open(f,'r'))   
+
+        #this class has selective sampling feature available, can be used when needed by calling SelectiveSampling.shuffle(batch_size)
+        self.selective_sampling = SelectiveSampling(data=self.ann)
+
+
         self.transform = transform
         self.max_words = max_words
         self.all_groups = []
@@ -185,7 +186,7 @@ class pretrain_dataset(Dataset):
         # print(image.shape)        
         return image, caption
 
-    def shuffle(self, bs=8, , rare_grp_ratio=0.375, batch_shuffle=False):
+    def shuffle(self, bs=8, rare_grp_ratio=0.375, batch_shuffle=False):
         #function to prepare minibatches based on selective sampling strategy
         # calls shuffle function from the base class (SelectiveSampling) 
         self.ann = self.selective_sampling.shuffle(bs=bs, rare_grp_ratio=rare_grp_ratio, batch_shuffle=batch_shuffle)

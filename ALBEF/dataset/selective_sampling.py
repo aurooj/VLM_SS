@@ -7,10 +7,27 @@ from tqdm.auto import tqdm
 
 
 class SelectiveSampling(object):
-    def __init__(self, ann_file):        
-        self.ann = []
-        for f in ann_file:
-            self.ann += json.load(open(f,'r'))
+    def __init__(self, data):   
+        '''
+        Parameters: 
+        data: list of dictionaries
+            Each dictionary in this list belongs to a data instance, and
+            can have an arbitrary number of columns but expects the key 'group' in each item's dictionary.
+            Example:
+                Format: [
+                { 'colA':<value>,
+                'colB':<value>,
+                'group':['a', 'b']
+                }, 
+                { 'colA':<value>,
+                'colB':<value>,
+                'group':['a', 'b']
+                }, 
+                ...
+                ]
+        '''     
+        self.ann = data
+        
         print("created SelectiveSampling object.")
 
     
