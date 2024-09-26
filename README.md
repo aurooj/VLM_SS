@@ -25,9 +25,26 @@ from selective_sampling import SelectiveSampling
 
 2. Add selective sampling to your custom dataset class in the `__init__()` function:
 ```
-self.selective_sampling = SelectiveSampling(ann_file)
+self.selective_sampling = SelectiveSampling(data)
 ```
-where `ann_file` is the path to `sample_data.json` file.
+where `data` is the list of data instances' dictionaries
+
+Each dictionary in this list belongs to a data instance, and
+            can have an arbitrary number of columns but expects the key 'group' in each item's dictionary.
+            Example:
+       ```
+               Format: [
+                { 'colA':<value>,
+                'colB':<value>,
+                'group':['a', 'b']
+                }, 
+                { 'colA':<value>,
+                'colB':<value>,
+                'group':['a', 'b']
+                }, 
+                ...
+                ]
+        ```
 
 3. Add `shuffle()` definition to your dataset class:
 ```
