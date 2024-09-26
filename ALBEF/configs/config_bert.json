@@ -17,6 +17,5 @@
   "type_vocab_size": 2,
   "vocab_size": 30522,
   "fusion_layer": 6,
-  "encoder_width": 768,
-  "use_auth_token": "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"
+  "encoder_width": 768
 }
