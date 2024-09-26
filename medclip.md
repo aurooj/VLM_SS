@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 Now install MedCLIP by running the following command:
 ```
-python setup.py install
+python setup.py develop
 ```
 ### Start training with Selective Sampling
 
