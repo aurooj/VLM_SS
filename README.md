@@ -94,9 +94,12 @@ Read instructions from [albef.md](https://github.com/aurooj/VLM_SS/blob/main/alb
 ### MedCLIP with Selective Sampling
 Read instructions from [medclip.md](https://github.com/aurooj/VLM_SS/blob/main/medclip.md) for MedCLIP trained with selective sampling. 
 
+### Model Checkpoints
+See [this](https://github.com/aurooj/VLM_SS/blob/main/ALBEF/pretrained_models/readme.md) to download model checkpoints for our best pretrained model and retrieval model from ALBEF.
+
 ##### Todo: 
 - [x] Add MedCLIP's modified version with selective sampling here.
-- [ ] Add pretrained model weights
+- [x] Add pretrained model weights
 
 ### Citation
 If this work and/or its findings are useful for your research, please cite our paper.
